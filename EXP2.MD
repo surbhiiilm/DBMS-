@@ -1,106 +1,58 @@
 # EXPERIMENT 2
 
 
-## 1.
+## 1. List all distinct job in employee
+```SQL
+SELECT DISTINCT JOB FROM EMPLOYEE;
 ```
-+-----------+
-| job       |
-+-----------+
-| CLERK     |
-| SALESMAN  |
-| MANAGER   |
-| ANALYST   |
-| PRESIDENT |
-+-----------+
+## 2. List all information about employee in department number 30
+```sql
+SELECT * FROM EMPLOYEE
+    -> WHERE DEPTNO = 30;
 ```
-## 2.
+## 3. Find all department number with department names greater than 20.
+```sql
+ SELECT * FROM DEPARTMENT
+    -> WHERE DEPTNO > 20;
 ```
-+-------+--------+----------+------+------------+------+------+--------+
-| EMPNO | ENAME  | JOB      | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-+-------+--------+----------+------+------------+------+------+--------+
-|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
-|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250 |  300 |     30 |
-|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
-|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 2850 | NULL |     30 |
-|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
-|  7900 | JAMES  | CLERK    | 7698 | 1981-12-03 | 3000 | NULL |     30 |
-+-------+--------+----------+------+------------+------+------+--------+
+## 4. Find all information about all the managers as well as the clerks in department 30.
+```sql
+SELECT * FROM EMPLOYEE
+    -> WHERE DEPTNO = 30 AND JOB IN('MANAGER','CLERK');
 ```
-## 3.
+## 5. List the employee name, employee numbers and department of all clerks.
+```sql
+SELECT ENAME, EMPNO, DEPTNO
+    -> FROM EMPLOYEE
+    -> WHERE JOB = 'CLERK';
 ```
-+--------+
-| deptno |
-+--------+
-|     30 |
-|     40 |
-+--------+
+## 6. Find all managers not in department 30.
+```sql
+SELECT * FROM EMPLOYEE
+    -> WHERE JOB = 'MANAGER'
+    -> AND DEPTNO <> 30;
 ```
-## 4.
+## 7. List information about all employees in department 10 who are not managers or clerks.
+```sql
+SELECT * FROM EMPLOYEE
+    -> WHERE DEPTNO = 10
+    -> AND JOB NOT IN ('MANAGER','CLERK');
 ```
-+-------+-------+---------+------+------------+------+------+--------+
-| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-+-------+-------+---------+------+------------+------+------+--------+
-|  7698 | BLAKE | MANAGER | 7839 | 1981-05-01 | 2850 | NULL |     30 |
-|  7900 | JAMES | CLERK   | 7698 | 1981-12-03 | 3000 | NULL |     30 |
-+-------+-------+---------+------+------------+------+------+--------+
+## 8. Find  employee and jobs earning between 1200 and 1400.
+```sql
+SELECT ENAME,JOB,SAL
+    -> FROM EMPLOYEE
+    -> WHERE SAL BETWEEN 1200 AND 1400;
 ```
-## 5.
+## 9. List name(of) and department number of employee who are clerks, analyst or salesman.
+```sql
+SELECT ENAME, DEPTNO
+    -> FROM EMPLOYEE
+    -> WHERE JOB IN('CLERK','ANALYST','SALESMAN');
 ```
-+--------+-------+--------+
-| ENAME  | EMPNO | DEPTNO |
-+--------+-------+--------+
-| SMITH  |  7369 |     20 |
-| ADAMS  |  7876 |     20 |
-| JAMES  |  7900 |     30 |
-| MILLER |  7934 |     10 |
-+--------+-------+--------+
-```
-## 6.
-```
-+-------+-------+---------+------+------------+------+------+--------+
-| EMPNO | ENAME | JOB     | MGR  | HIREDATE   | SAL  | COMM | DEPTNO |
-+-------+-------+---------+------+------------+------+------+--------+
-|  7566 | JONES | MANAGER | 7839 | 1981-04-02 | 2975 | NULL |     20 |
-|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450 | NULL |     20 |
-+-------+-------+---------+------+------------+------+------+--------+
-```
-## 7.
-```
-Empty set (0.043 sec)
-```
-## 8.
-```
-+--------+----------+------+
-| ENAME  | JOB      | SAL  |
-+--------+----------+------+
-| WARD   | SALESMAN | 1250 |
-| MARTIN | SALESMAN | 1250 |
-| MILLER | CLERK    | 1300 |
-+--------+----------+------+
-```
-## 9.
-```
-+--------+--------+
-| ENAME  | DEPTNO |
-+--------+--------+
-| SMITH  |     20 |
-| ALLEN  |     30 |
-| WARD   |     30 |
-| MARTIN |     30 |
-| SCOTT  |     40 |
-| TURNER |     30 |
-| ADAMS  |     20 |
-| JAMES  |     30 |
-| FORD   |     20 |
-| MILLER |     10 |
-+--------+--------+
-```
-## 10.
-```
-+--------+--------+
-| ENAME  | DEPTNO |
-+--------+--------+
-| MARTIN |     30 |
-| MILLER |     10 |
-+--------+--------+
+## 10. List Name and Department number of employee whose names began with M.
+```sql
+ SELECT ENAME,DEPTNO
+    -> FROM EMPLOYEE
+    -> WHERE ENAME LIKE 'M%';
 ```
