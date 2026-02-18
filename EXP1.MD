@@ -2,7 +2,7 @@
 
 ## CREATE EMPLOYEE TABLE
 
-```
+```sql
  CREATE TABLE EMPLOYEE(
     -> EMPNO INT(4) PRIMARY KEY,
     -> ENAME VARCHAR (20) NOT NULL,
@@ -16,14 +16,15 @@
 ```
 
 ## CREATE DEPARTMENT TABLE
-```
+```sql
 CREATE TABLE DEPARTMENT(
     -> Deptno INT (2) PRIMARY KEY,
     -> Dname VARCHAR(15) NOT NULL
     -> );
 ```
+
 ## INSERT VALUES INTO DEPARTMENT
-```
+```sql
 INSERT INTO DEPARTMENT VALUES
 -> (10, 'RESEARCH'), 
 -> (20, 'ACCOUNTING'), 
@@ -31,7 +32,7 @@ INSERT INTO DEPARTMENT VALUES
 -> (40, 'OPERATIONS');
 ```
 ## INSERT VALUE INTO EMPLOYEE TABLE
-```
+```sql
 INSERT INTO EMPLOYEE VALUES
     -> (7369, 'SMITH', 'CLERK', 7902, '1980-12-17',  800, NULL, 20),
     -> (7499, 'ALLEN', 'SALESMAN', 7698, '1981-02-20', 1600, 300, 30),
@@ -49,30 +50,30 @@ INSERT INTO EMPLOYEE VALUES
     -> (7934, 'MILLER', 'CLERK', 7782, '1982-01-23', 1300, NULL, 10);
 ```
 ## CREATE EMPLOYEE_MASTER TABLE WITH DATA USING EMPLOYEE TABLE
-```
+```sql
 CREATE TABLE Employee_Master AS
     -> SELECT * FROM Employee;
 ```
 
 ## 2. Delete all record into Employee_master whose DeptNo is 10
-```
+```sql
 DELETE FROM Employee_Master
     -> WHERE DeptNo = 10;
 ```
 ## 3. Update 10% in his salary of DEPTNO 20 into Employee_Master.
-```
+```sql
 UPDATE Employee_Master 
     -> SET SAL = SAL + (SAL * 0.10)
     -> WHERE DEPTNO=20;
 ```
 
 ## 4. Alter SAL with size 10,2 in Employee_Master.
-```
+```sql
  ALTER TABLE Employee_Master
     -> MODIFY Sal DECIMAL(10,2);
 ```
 ## 5. Drop Employee master Table.
-```
+```sql
 DROP TABLE Employee_Master;
 ```
 
