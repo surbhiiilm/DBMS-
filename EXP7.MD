@@ -35,7 +35,7 @@ SELECT ENAME,
     -> FROM EMPLOYEE
     -> GROUP BY JOB;
 ```
-## 6.
+## 6. Query that will display the total no of employees, and of that total the number who were hired in 1980,1981,1982 and 1983. Give appropriate column heading.
 ```sql
 SELECT
     -> COUNT(*) AS TOTAL_EMPLOYEES,
@@ -45,26 +45,26 @@ SELECT
     -> SUM(CASE WHEN YEAR(HIREDATE) = 1983 THEN 1 ELSE 0 END) AS "1983"
     -> FROM EMPLOYEE;
 ```
-## 7.
+## 7. Query to get the last sunday of any Month.
 ```sql
 SELECT DATE_SUB(
     -> LAST_DAY('2026-02-10'),
     -> INTERVAL (WEEKDAY(LAST_DAY('2026-02-10')) + 1)
     -> DAY) AS LAST_SUNDAY;
 ```
-## 8.
+## 8. Display department numbers and total number of employees working in each department.
 ```sql
 SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY DEPTNO;
 ```
-## 9.
+## 9. Display the various jobs and total number of employees within each job group.
 ```sql
 SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY JOB;
 ```
-## 10.
+## 10. Display the depart numbers and total salary for each department.
 ```sql
 SELECT DEPTNO, SUM(SAL) AS TOTAL_SALARY
     -> FROM EMPLOYEE
